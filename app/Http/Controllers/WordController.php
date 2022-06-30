@@ -36,6 +36,11 @@ class WordController extends Controller
         return view('word', ['word' => $w]);
     }
 
+    public function add_new(): \Illuminate\View\View
+    {
+        return view('create_word');
+    }
+
     ////////////////////////////////////////////////// API
     ///
     public function api__create_word(Request $r): JsonResponse

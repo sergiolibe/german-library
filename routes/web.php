@@ -17,6 +17,7 @@
 // Words
 $router->get('/', 'WordController@all');
 $router->get('/words', 'WordController@all');
+$router->get('/add_new', 'WordController@add_new');
 $router->get('/words/{id:[0-9]+}', 'WordController@by_id');
 $router->get('/words/{text}', 'WordController@by_text');
 

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Http\Payload;
 
-use App\Enum\EventType;
 use App\Enum\NoteStatus;
+use App\Enum\WordGender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -51,7 +51,7 @@ class BasePayload
                 'string'          => (string)$datum,
                 'array'           => (array)$datum,
                 \DateTime::class  => new \DateTime((string)$datum),
-                EventType::class  => EventType::from($datum),
+                WordGender::class  => WordGender::from($datum),
                 NoteStatus::class => NoteStatus::from($datum),
                 default           => throw new \RuntimeException("Type $type not supported"),
             };
