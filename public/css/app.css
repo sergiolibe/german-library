@@ -1,0 +1,36 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.input-search {
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.clean-input {
+    cursor: pointer;
+}
+
+.word-card {
+    box-shadow: -10px -10px 0px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 80%;
+    border: solid 1px black;
+    margin: 20px;
+}
+
+.word-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.word-card > .container {
+    padding: 10px;
+}
+
+.word-card .flag {
+    font-size: 20px;
+}
+
+.word-card.hidden {
+    display: none;
+}

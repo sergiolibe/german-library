@@ -1,0 +1,42 @@
+version: '3.5'
+services:
+  web:
+    build: .
+    container_name: german-library-web
+    volumes:
+      - ./:/usr/src/app:delegated
+      - ./.docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    networks:
+      - german-library-network
+
+  nginx:
+    image: nginx
+    container_name: german-library-nginx
+    depends_on:
+      - web
+    ports:
+      - "${NGINX_PORT:-80}:8080"
+    volumes:
+      - ./:/usr/src/app:delegated
+      - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf:delegated
+    networks:
+      - german-library-network
+
+  database:
+    image: mariadb:10.3
+    container_name: german-library-mariadb
+    volumes:
+      - .docker/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$DB_DATABASE
+      - MYSQL_USER=$DB_USERNAME
+      - MYSQL_PASSWORD=$DB_PASSWORD
+    ports:
+      - "8082:3306"
+    networks:
+      - german-library-network
+
+networks:
+  german-library-network:
+    name: german-library-network

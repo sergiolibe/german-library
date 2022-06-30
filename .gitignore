@@ -1,0 +1,8 @@
+/vendor
+/.idea
+/.docker/mysql
+Homestead.json
+Homestead.yaml
+.env
+.phpunit.result.cache
+xdebug
