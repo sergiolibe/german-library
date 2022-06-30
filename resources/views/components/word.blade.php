@@ -8,7 +8,7 @@
         data-gender="{{$word->gender->readable()}}"
 >
     <div class="container">
-        @if(!is_null($word->image))
+        @if(!empty($word->image))
             <img src="data:image/png;base64,{{$word->image}}" alt="{{$word->text}}" style="width:200px">
         @endif
         <span>
